@@ -54,4 +54,9 @@ async function fetchEmails() {
 // call fetchEmails on page load or when a refresh button is clicked
 refreshBtn.addEventListener('click', fetchEmails);
   
-  
+deleteOldBtn.addEventListener('click', async () => {
+  inboxList.innerHTML = ''; // clear the inbox list
+  setTimeout(() => {
+    window.location.href = './index.html';
+  },5000)
+});
