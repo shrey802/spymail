@@ -12,7 +12,7 @@ createNewBtn.addEventListener('click', async () => {
     try{
         const response = await fetch('https://www.1secmail.com/api/v1/?action=genRandomMailbox');
         const data = await response.json();
-      
+        localStorage.setItem('temp-mail', data);
       showEmail.textContent = data;
       inboxList.innerHTML = ''; // clear the inbox list
 
@@ -56,6 +56,7 @@ refreshBtn.addEventListener('click', fetchEmails);
   
 deleteOldBtn.addEventListener('click', async () => {
   inboxList.innerHTML = ''; // clear the inbox list
+  localStorage.removeItem('temp-mail');
   setTimeout(() => {
     window.location.href = './index.html';
   },5000)
